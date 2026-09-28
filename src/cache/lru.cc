@@ -44,4 +44,38 @@ void LRUCache::Set(const std::string_view& key, const ByteView& value)
     }
 }
 
+void LRUCache::Delete(const std::string_view& key)
+{
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (cache_.find(key.data()) == cache_.end())
+    {
+        return;
+    }
+    auto element = cache_[key.data()];
+    auto [_, value] = *element;
+    list_.erase(element);
+    cache_.erase(key.data());
+    bytes_ -= key.size() + value.Len();
+    if (evivted_func_)
+    {
+        evivted_func_(key, value);
+    }
+}
+
+void LRUCache::RemoveOldest()
+{
+    if (list_.empty())
+    {
+        return;
+    }
+    auto [key, value] = list_.back();
+    cache_.erase(key);
+    list_.pop_back();
+    bytes_ -= key.size() + value.Len();
+    if (evivted_func_)
+    {
+        evivted_func_(key, value);
+    }
+}
+
 }

@@ -45,9 +45,10 @@ struct Entry
     }
 };
 
+// 链表上的每一个元素都对应一个迭代器
 class LRUCache 
 {
-    using EvictedFunc = std::function<void(std::string, ByteView)>; // 被淘汰的函数
+    using EvictedFunc = std::function<void(std::string_view, ByteView)>; // 被淘汰的函数
     using ListElementIter = std::list<Entry>::iterator; // 获得链表的起点（迭代器）
 
 public:
