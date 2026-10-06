@@ -1,5 +1,7 @@
 #include "../include/cache/consist_hash.h"
 #include <mutex>
+#include <math.h>
+#include <string>
 
 namespace Litguidyo
 {
@@ -83,7 +85,7 @@ bool ConsistentHashMap::Add(const std::vector<std::string_view>& nodes)
     return true;
 }
 
-bool ConsistentHashMap::Remove(const std::string_view& node)
+bool ConsistentHashMap::Remove(const std::string_view& node) // 传入的就是真实结点
 {
     if (node.empty())
     {
@@ -108,6 +110,7 @@ bool ConsistentHashMap::Remove(const std::string_view& node)
         auto it = std::remove(keys_.begin(), keys_.end(), hash);
         keys_.erase(it, keys_.end());
     }
+    // 删除真实结点
     node_replicas_.erase(node);
     node_counts_.erase(node);
     return true;
@@ -172,6 +175,151 @@ void ConsistentHashMap::StartBalancer()
             }
         }
     }};
+}
+
+void ConsistentHashMap::AddNode(const std::string_view& node, int replicas)
+{
+    for (int i = 0; i < replicas; i++)
+    {
+        std::string hash_key = fmt::format("{}-{}", node, std::to_string(i));
+        uint32_t hash = config_.hash_func(hash_key);
+        keys_.push_back(hash);
+        hash_map_[hash] = node;
+    }
+    node_replicas_[node] = replicas;
+    // 如果这个结点是新添加的，初始化其计数器
+    if (node_counts_.find(node) == node_counts_.end())
+    {
+        node_counts_[node] = 0;
+    }
+}
+
+void ConsistentHashMap::CheckAndRebalance()
+{
+    if (total_requests_.load() < 1000)
+    {
+        return; // 样本太少了，不进行调整
+    }
+    std::shared_lock lock{mutex_};
+
+    if (node_replicas_.empty())
+    {
+        return;
+    }
+
+    // 计算系统平均负载：总请求数 / 物理节点数
+    long long current_total_requests = total_requests_.load();
+    // 每台真实服务器的平均请求数，用来判断哪台服务器负载过高
+    double avg_load = static_cast<double>(current_total_requests) / node_replicas_.size();
+    double max_diff = 0.0;
+
+    for (auto const& [node, count] : node_counts_)
+    {
+        double diff = std::abs(static_cast<double>(count.load()) - avg_load);
+        if (avg_load > 0)
+        {
+            if (diff / avg_load > max_diff)
+            {
+                max_diff = diff / avg_load;
+            }
+        }
+        else if (diff > 0) // 如果avg是0，但是counts不是0，说明不平衡
+        {
+            max_diff = 1.0;
+        }
+    }
+    lock.unlock(); // 释放读锁，因为rebalenceNodes要写锁
+    if (max_diff > config_.load_balance_threadshold)
+    {
+        RebalanceNodes();
+    }
+}
+
+void ConsistentHashMap::RebalanceNodes()
+{
+    std::unique_lock lock{mutex_};
+
+    if (node_replicas_.empty())
+    {
+        return;
+    }
+    long long current_total_requests = total_requests_.load();
+    double avg_load = static_cast<double>(current_total_requests) / node_replicas_.size();
+    
+    // 调整每个结点的虚拟结点数量
+    // 注意：这里需要创建一个副本，因为在循环里面可能会修改 nodeReplicas 和 nodeCounts
+    std::unordered_map<std::string_view, int> curr_replicas = node_replicas_;
+    std::unordered_map<std::string_view, std::atomic<long long>> curr_counts;
+    for (auto const& [node, count] : node_counts_)
+    {
+        curr_counts[node] = count.load();
+    }
+
+    for (auto const& [node, count] : curr_counts)
+    {
+        int old_replicas = curr_replicas[node];
+        double load_ratio = 0.0;
+        if (avg_load > 0)
+        {
+            load_ratio = static_cast<double>(count) / avg_load;
+        }
+        else if (count > 0)
+        {
+            load_ratio = 2.0;
+        }
+        else
+        {
+            load_ratio = 1.0;
+        }
+
+        int new_replicas;
+        if (load_ratio > 1.0)
+        {
+            // 负载过高，减少虚拟结点
+            new_replicas = static_cast<int>(std::round(static_cast<double>(old_replicas) / load_ratio));
+        }
+        else 
+        {
+            new_replicas = static_cast<int>(std::round(static_cast<double>(old_replicas) * (2.0 - load_ratio)));
+        }
+
+        // 确保在有限的范围之内
+        if (new_replicas < config_.min_replicas)
+        {
+            new_replicas = config_.min_replicas;
+        }
+        else if (new_replicas > config_.max_replicas)
+        {
+            new_replicas = config_.max_replicas;
+        }
+
+        if (new_replicas != old_replicas)
+        {
+            // 重新添加结点的虚拟节点：先移除旧的结点，再添加新的
+            // 移除结点的所有虚拟结点
+            int replicas_to_remove = node_replicas_[node];
+            for (int i = 0; i < replicas_to_remove; i++)
+            {
+                std::string hashKey = static_cast<std::string>(node) + "-" + std::to_string(i);
+                uint32_t hash = config_.hash_func(hashKey);
+                hash_map_.erase(hash);
+                auto it = std::remove(keys_.begin(), keys_.end(), hash);
+                keys_.erase(it, keys_.end());
+            }
+            node_replicas_.erase(node);
+
+            AddNode(node, new_replicas);
+        }
+    }
+
+    // 重置计数器
+    for (auto& pair : node_counts_)
+    {
+        pair.second.store(0);
+    }
+    total_requests_.store(0);
+
+    std::sort(keys_.begin(), keys_.end());
 }
 
 } // namespace Litguidyo
