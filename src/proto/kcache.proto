@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pb;
+
+// 缓存节点的读取接口。
+service Cache {
+  rpc Get(GetRequest) returns (GetResponse);
+}
+
+message GetRequest {
+  string key = 1;
+}
+
+message GetResponse {
+  bytes value = 1;
+}

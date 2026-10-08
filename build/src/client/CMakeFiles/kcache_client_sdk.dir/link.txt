@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkcache_client_sdk.a CMakeFiles/kcache_client_sdk.dir/client_sdk.cpp.o
+/usr/bin/ranlib libkcache_client_sdk.a

@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+0232cc04a9f193672e5c951b90a7b5b0 /home/fengyue/workspace/Distributed-Cache/src/proto/kcache.pb.cc

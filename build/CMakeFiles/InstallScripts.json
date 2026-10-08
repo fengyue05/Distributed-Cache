@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/fengyue/workspace/Distributed-Cache/build/cmake_install.cmake",
+		"/home/fengyue/workspace/Distributed-Cache/build/src/cmake_install.cmake",
+		"/home/fengyue/workspace/Distributed-Cache/build/src/client/cmake_install.cmake",
+		"/home/fengyue/workspace/Distributed-Cache/build/test/cmake_install.cmake",
+		"/home/fengyue/workspace/Distributed-Cache/build/example/cmake_install.cmake",
+		"/home/fengyue/workspace/Distributed-Cache/build/example/http_gateway/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

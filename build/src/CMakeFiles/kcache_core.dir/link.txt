@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkcache_core.a CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.o CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o
+/usr/bin/ranlib libkcache_core.a

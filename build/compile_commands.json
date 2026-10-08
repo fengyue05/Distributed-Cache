@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/proto/kcache.pb.cc",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/proto/kcache.pb.cc",
+  "output": "src/CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/proto/kcache.grpc.pb.cc",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/proto/kcache.grpc.pb.cc",
+  "output": "src/CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DGFLAGS_IS_A_DLL=0 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/node_server.dir/main.cpp.o -c /home/fengyue/workspace/Distributed-Cache/src/main.cpp",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/main.cpp",
+  "output": "src/CMakeFiles/node_server.dir/main.cpp.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src/client",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -I/home/fengyue/workspace/Distributed-Cache/include -std=gnu++17 -o CMakeFiles/kcache_client_sdk.dir/client_sdk.cpp.o -c /home/fengyue/workspace/Distributed-Cache/src/client/client_sdk.cpp",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/client/client_sdk.cpp",
+  "output": "src/client/CMakeFiles/kcache_client_sdk.dir/client_sdk.cpp.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/test",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/test_lru.dir/test_lru.cpp.o -c /home/fengyue/workspace/Distributed-Cache/test/test_lru.cpp",
+  "file": "/home/fengyue/workspace/Distributed-Cache/test/test_lru.cpp",
+  "output": "test/CMakeFiles/test_lru.dir/test_lru.cpp.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/test",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/test_cons_hash.dir/test_consistent_hash.cpp.o -c /home/fengyue/workspace/Distributed-Cache/test/test_consistent_hash.cpp",
+  "file": "/home/fengyue/workspace/Distributed-Cache/test/test_consistent_hash.cpp",
+  "output": "test/CMakeFiles/test_cons_hash.dir/test_consistent_hash.cpp.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/test",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/test_group.dir/test_group.cpp.o -c /home/fengyue/workspace/Distributed-Cache/test/test_group.cpp",
+  "file": "/home/fengyue/workspace/Distributed-Cache/test/test_group.cpp",
+  "output": "test/CMakeFiles/test_group.dir/test_group.cpp.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/example/http_gateway",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DGFLAGS_IS_A_DLL=0 -DJSON_DIAGNOSTICS=0 -DJSON_USE_IMPLICIT_CONVERSIONS=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -I/home/fengyue/workspace/Distributed-Cache/include -std=gnu++17 -DCPPHTTPLIB_OPENSSL_SUPPORT -DCPPHTTPLIB_ZLIB_SUPPORT -DCPPHTTPLIB_BROTLI_SUPPORT -o CMakeFiles/http_gateway.dir/http_gateway.cpp.o -c /home/fengyue/workspace/Distributed-Cache/example/http_gateway/http_gateway.cpp",
+  "file": "/home/fengyue/workspace/Distributed-Cache/example/http_gateway/http_gateway.cpp",
+  "output": "example/http_gateway/CMakeFiles/http_gateway.dir/http_gateway.cpp.o"
+}
+]
