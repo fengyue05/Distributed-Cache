@@ -113,6 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(CMAKE_COMMAND) -P /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/VerifyGlobs.cmake
 	cd /home/fengyue/workspace/Distributed-Cache/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -143,6 +144,78 @@ node_server: src/CMakeFiles/node_server.dir/rule
 node_server/fast:
 	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/node_server.dir/build.make src/CMakeFiles/node_server.dir/build
 .PHONY : node_server/fast
+
+cache/lru.o: cache/lru.cc.o
+.PHONY : cache/lru.o
+
+# target to build an object file
+cache/lru.cc.o:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/cache/lru.cc.o
+.PHONY : cache/lru.cc.o
+
+cache/lru.i: cache/lru.cc.i
+.PHONY : cache/lru.i
+
+# target to preprocess a source file
+cache/lru.cc.i:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/cache/lru.cc.i
+.PHONY : cache/lru.cc.i
+
+cache/lru.s: cache/lru.cc.s
+.PHONY : cache/lru.s
+
+# target to generate assembly for a file
+cache/lru.cc.s:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/cache/lru.cc.s
+.PHONY : cache/lru.cc.s
+
+consistent_hash/consistent_hash.o: consistent_hash/consistent_hash.cc.o
+.PHONY : consistent_hash/consistent_hash.o
+
+# target to build an object file
+consistent_hash/consistent_hash.cc.o:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o
+.PHONY : consistent_hash/consistent_hash.cc.o
+
+consistent_hash/consistent_hash.i: consistent_hash/consistent_hash.cc.i
+.PHONY : consistent_hash/consistent_hash.i
+
+# target to preprocess a source file
+consistent_hash/consistent_hash.cc.i:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.i
+.PHONY : consistent_hash/consistent_hash.cc.i
+
+consistent_hash/consistent_hash.s: consistent_hash/consistent_hash.cc.s
+.PHONY : consistent_hash/consistent_hash.s
+
+# target to generate assembly for a file
+consistent_hash/consistent_hash.cc.s:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.s
+.PHONY : consistent_hash/consistent_hash.cc.s
+
+group/group.o: group/group.cc.o
+.PHONY : group/group.o
+
+# target to build an object file
+group/group.cc.o:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/group/group.cc.o
+.PHONY : group/group.cc.o
+
+group/group.i: group/group.cc.i
+.PHONY : group/group.i
+
+# target to preprocess a source file
+group/group.cc.i:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/group/group.cc.i
+.PHONY : group/group.cc.i
+
+group/group.s: group/group.cc.s
+.PHONY : group/group.s
+
+# target to generate assembly for a file
+group/group.cc.s:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/group/group.cc.s
+.PHONY : group/group.cc.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -216,6 +289,54 @@ proto/kcache.pb.cc.s:
 	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.s
 .PHONY : proto/kcache.pb.cc.s
 
+register/register.o: register/register.cc.o
+.PHONY : register/register.o
+
+# target to build an object file
+register/register.cc.o:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/register/register.cc.o
+.PHONY : register/register.cc.o
+
+register/register.i: register/register.cc.i
+.PHONY : register/register.i
+
+# target to preprocess a source file
+register/register.cc.i:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/register/register.cc.i
+.PHONY : register/register.cc.i
+
+register/register.s: register/register.cc.s
+.PHONY : register/register.s
+
+# target to generate assembly for a file
+register/register.cc.s:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/register/register.cc.s
+.PHONY : register/register.cc.s
+
+server/server.o: server/server.cc.o
+.PHONY : server/server.o
+
+# target to build an object file
+server/server.cc.o:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/server/server.cc.o
+.PHONY : server/server.cc.o
+
+server/server.i: server/server.cc.i
+.PHONY : server/server.i
+
+# target to preprocess a source file
+server/server.cc.i:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/server/server.cc.i
+.PHONY : server/server.cc.i
+
+server/server.s: server/server.cc.s
+.PHONY : server/server.s
+
+# target to generate assembly for a file
+server/server.cc.s:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/server/server.cc.s
+.PHONY : server/server.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -226,6 +347,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... kcache_core"
 	@echo "... node_server"
+	@echo "... cache/lru.o"
+	@echo "... cache/lru.i"
+	@echo "... cache/lru.s"
+	@echo "... consistent_hash/consistent_hash.o"
+	@echo "... consistent_hash/consistent_hash.i"
+	@echo "... consistent_hash/consistent_hash.s"
+	@echo "... group/group.o"
+	@echo "... group/group.i"
+	@echo "... group/group.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -235,6 +365,12 @@ help:
 	@echo "... proto/kcache.pb.o"
 	@echo "... proto/kcache.pb.i"
 	@echo "... proto/kcache.pb.s"
+	@echo "... register/register.o"
+	@echo "... register/register.i"
+	@echo "... register/register.s"
+	@echo "... server/server.o"
+	@echo "... server/server.i"
+	@echo "... server/server.s"
 .PHONY : help
 
 
@@ -246,6 +382,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	cd /home/fengyue/workspace/Distributed-Cache/build && $(CMAKE_COMMAND) -P /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/VerifyGlobs.cmake
 	cd /home/fengyue/workspace/Distributed-Cache/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

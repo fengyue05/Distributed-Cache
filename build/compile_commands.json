@@ -13,6 +13,36 @@
 },
 {
   "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/kcache_core.dir/cache/lru.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/cache/lru.cc",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/cache/lru.cc",
+  "output": "src/CMakeFiles/kcache_core.dir/cache/lru.cc.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/consistent_hash/consistent_hash.cc",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/consistent_hash/consistent_hash.cc",
+  "output": "src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/kcache_core.dir/group/group.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/group/group.cc",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/group/group.cc",
+  "output": "src/CMakeFiles/kcache_core.dir/group/group.cc.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/kcache_core.dir/register/register.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/register/register.cc",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/register/register.cc",
+  "output": "src/CMakeFiles/kcache_core.dir/register/register.cc.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
+  "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/kcache_core.dir/server/server.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/server/server.cc",
+  "file": "/home/fengyue/workspace/Distributed-Cache/src/server/server.cc",
+  "output": "src/CMakeFiles/kcache_core.dir/server/server.cc.o"
+},
+{
+  "directory": "/home/fengyue/workspace/Distributed-Cache/build/src",
   "command": "/usr/bin/c++ -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS -DFMT_LOCALE -DFMT_SHARED -DGFLAGS_IS_A_DLL=0 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/fengyue/workspace/Distributed-Cache/src/include -I/home/fengyue/workspace/Distributed-Cache/src/proto -std=gnu++17 -o CMakeFiles/node_server.dir/main.cpp.o -c /home/fengyue/workspace/Distributed-Cache/src/main.cpp",
   "file": "/home/fengyue/workspace/Distributed-Cache/src/main.cpp",
   "output": "src/CMakeFiles/node_server.dir/main.cpp.o"

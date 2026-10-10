@@ -1,5 +1,11 @@
 # 收集核心源文件（排除 main.cpp 和 client 目录） 
-file(GLOB_RECURSE KCACHE_CORE_SRC "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp") 
+file(GLOB_RECURSE KCACHE_CORE_SRC CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cc")
+# protobuf 生成的源文件在 add_library 中单独添加
+list(REMOVE_ITEM KCACHE_CORE_SRC
+    "${CMAKE_CURRENT_SOURCE_DIR}/proto/kcache.pb.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/proto/kcache.grpc.pb.cc")
 list(REMOVE_ITEM KCACHE_CORE_SRC "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp") 
 # 排除 client 目录的所有文件 
 file(GLOB_RECURSE CLIENT_FILES "${CMAKE_CURRENT_SOURCE_DIR}/client/*.cpp") 

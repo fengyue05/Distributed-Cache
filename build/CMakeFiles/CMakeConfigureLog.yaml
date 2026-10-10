@@ -1120,3 +1120,171 @@ events:
         1.30.2
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/local/lib/cmake/etcd-cpp-api/FindGRPC.cmake:91 (try_run)"
+      - "/home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "/usr/local/lib/cmake/etcd-cpp-api/etcd-cpp-api-config.cmake:15 (find_dependency)"
+      - "CMakeLists.txt:27 (find_package)"
+    directories:
+      source: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+      binary: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/local/lib/cmake/etcd-cpp-api"
+    buildResult:
+      variable: "_gRPC_GET_VERSION_COMPILE_STATUS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_71d0f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_71d0f.dir/build.make CMakeFiles/cmTC_71d0f.dir/build
+        gmake[1]: Entering directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_71d0f.dir/get_gRPC_version.cc.o
+        /usr/bin/c++   -std=gnu++17 -o CMakeFiles/cmTC_71d0f.dir/get_gRPC_version.cc.o -c /home/fengyue/workspace/Distributed-Cache/build/get_gRPC_version.cc
+        Linking CXX executable cmTC_71d0f
+        /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71d0f.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_71d0f.dir/get_gRPC_version.cc.o -o cmTC_71d0f  /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgrpc++.so /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgpr.so /usr/lib/x86_64-linux-gnu/libgpr.so -lpthread -ldl
+        gmake[1]: Leaving directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "_gRPC_GET_VERSION_STATUS"
+      cached: true
+      stdout: |
+        1.30.2
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/local/lib/cmake/etcd-cpp-api/FindGRPC.cmake:91 (try_run)"
+      - "/home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "/usr/local/lib/cmake/etcd-cpp-api/etcd-cpp-api-config.cmake:15 (find_dependency)"
+      - "CMakeLists.txt:27 (find_package)"
+    directories:
+      source: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+      binary: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/local/lib/cmake/etcd-cpp-api"
+    buildResult:
+      variable: "_gRPC_GET_VERSION_COMPILE_STATUS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_40d18/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_40d18.dir/build.make CMakeFiles/cmTC_40d18.dir/build
+        gmake[1]: Entering directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_40d18.dir/get_gRPC_version.cc.o
+        /usr/bin/c++   -std=gnu++17 -o CMakeFiles/cmTC_40d18.dir/get_gRPC_version.cc.o -c /home/fengyue/workspace/Distributed-Cache/build/get_gRPC_version.cc
+        Linking CXX executable cmTC_40d18
+        /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_40d18.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_40d18.dir/get_gRPC_version.cc.o -o cmTC_40d18  /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgrpc++.so /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgpr.so /usr/lib/x86_64-linux-gnu/libgpr.so -lpthread -ldl
+        gmake[1]: Leaving directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "_gRPC_GET_VERSION_STATUS"
+      cached: true
+      stdout: |
+        1.30.2
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/local/lib/cmake/etcd-cpp-api/FindGRPC.cmake:91 (try_run)"
+      - "/home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "/usr/local/lib/cmake/etcd-cpp-api/etcd-cpp-api-config.cmake:15 (find_dependency)"
+      - "CMakeLists.txt:27 (find_package)"
+    directories:
+      source: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+      binary: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/local/lib/cmake/etcd-cpp-api"
+    buildResult:
+      variable: "_gRPC_GET_VERSION_COMPILE_STATUS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_50a54/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_50a54.dir/build.make CMakeFiles/cmTC_50a54.dir/build
+        gmake[1]: Entering directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_50a54.dir/get_gRPC_version.cc.o
+        /usr/bin/c++   -std=gnu++17 -o CMakeFiles/cmTC_50a54.dir/get_gRPC_version.cc.o -c /home/fengyue/workspace/Distributed-Cache/build/get_gRPC_version.cc
+        Linking CXX executable cmTC_50a54
+        /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50a54.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_50a54.dir/get_gRPC_version.cc.o -o cmTC_50a54  /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgrpc++.so /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgpr.so /usr/lib/x86_64-linux-gnu/libgpr.so -lpthread -ldl
+        gmake[1]: Leaving directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "_gRPC_GET_VERSION_STATUS"
+      cached: true
+      stdout: |
+        1.30.2
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/local/lib/cmake/etcd-cpp-api/FindGRPC.cmake:91 (try_run)"
+      - "/home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "/usr/local/lib/cmake/etcd-cpp-api/etcd-cpp-api-config.cmake:15 (find_dependency)"
+      - "CMakeLists.txt:27 (find_package)"
+    directories:
+      source: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+      binary: "/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/local/lib/cmake/etcd-cpp-api"
+    buildResult:
+      variable: "_gRPC_GET_VERSION_COMPILE_STATUS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4ed8a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4ed8a.dir/build.make CMakeFiles/cmTC_4ed8a.dir/build
+        gmake[1]: Entering directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_4ed8a.dir/get_gRPC_version.cc.o
+        /usr/bin/c++   -std=gnu++17 -o CMakeFiles/cmTC_4ed8a.dir/get_gRPC_version.cc.o -c /home/fengyue/workspace/Distributed-Cache/build/get_gRPC_version.cc
+        Linking CXX executable cmTC_4ed8a
+        /home/fengyue/learning/muduo/mymuduo/cmake-4.0.2-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ed8a.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_4ed8a.dir/get_gRPC_version.cc.o -o cmTC_4ed8a  /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgrpc++.so /usr/lib/x86_64-linux-gnu/libgrpc.so /usr/lib/x86_64-linux-gnu/libgpr.so /usr/lib/x86_64-linux-gnu/libgpr.so -lpthread -ldl
+        gmake[1]: Leaving directory '/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "_gRPC_GET_VERSION_STATUS"
+      cached: true
+      stdout: |
+        1.30.2
+      exitCode: 0
+...

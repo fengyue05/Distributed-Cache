@@ -2,15 +2,42 @@ syntax = "proto3";
 
 package pb;
 
-// 缓存节点的读取接口。
+// 缓存节点的读写接口。
 service Cache {
   rpc Get(GetRequest) returns (GetResponse);
+  rpc Set(SetRequest) returns (SetResponse);
+  rpc Delete(GetRequest) returns (DeleteResponse);
+  rpc Invalidate(GetRequest) returns (InvalidateResponse);
 }
 
 message GetRequest {
   string key = 1;
+  string group = 2;
 }
 
 message GetResponse {
   bytes value = 1;
+}
+
+message SetRequest {
+  string key = 1;
+  bytes value = 2;
+  string group = 3;
+}
+
+message SetResponse {
+  bool success = 1;
+}
+
+message DeleteResponse {
+  bool success = 1;
+}
+
+// 通知节点使指定 key 的本地缓存失效。
+message Request {
+  string key = 1;
+}
+
+message InvalidateResponse {
+  bool success = 1;
 }

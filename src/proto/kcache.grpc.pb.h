@@ -28,7 +28,7 @@
 
 namespace pb {
 
-// 缓存节点的读取接口。
+// 缓存节点的读写接口。
 class Cache final {
  public:
   static constexpr char const* service_full_name() {
@@ -43,6 +43,27 @@ class Cache final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::GetResponse>> PrepareAsyncGet(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::GetResponse>>(PrepareAsyncGetRaw(context, request, cq));
+    }
+    virtual ::grpc::Status Set(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::pb::SetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::SetResponse>> AsyncSet(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::SetResponse>>(AsyncSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::SetResponse>> PrepareAsyncSet(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::SetResponse>>(PrepareAsyncSetRaw(context, request, cq));
+    }
+    virtual ::grpc::Status Delete(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::pb::DeleteResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::DeleteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::DeleteResponse>>(AsyncDeleteRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::DeleteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::DeleteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
+    }
+    virtual ::grpc::Status Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::pb::InvalidateResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::InvalidateResponse>> AsyncInvalidate(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::InvalidateResponse>>(AsyncInvalidateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::InvalidateResponse>> PrepareAsyncInvalidate(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pb::InvalidateResponse>>(PrepareAsyncInvalidateRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
@@ -59,6 +80,42 @@ class Cache final {
       #else
       virtual void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
+      virtual void Set(::grpc::ClientContext* context, const ::pb::SetRequest* request, ::pb::SetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Set(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::SetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Set(::grpc::ClientContext* context, const ::pb::SetRequest* request, ::pb::SetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Set(::grpc::ClientContext* context, const ::pb::SetRequest* request, ::pb::SetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Set(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::SetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Set(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::SetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void Delete(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::DeleteResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Delete(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Delete(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Invalidate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::InvalidateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Invalidate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::InvalidateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Invalidate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::InvalidateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     typedef class experimental_async_interface async_interface;
@@ -70,6 +127,12 @@ class Cache final {
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::GetResponse>* AsyncGetRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::GetResponse>* PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::SetResponse>* AsyncSetRaw(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::SetResponse>* PrepareAsyncSetRaw(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::DeleteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::DeleteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::InvalidateResponse>* AsyncInvalidateRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pb::InvalidateResponse>* PrepareAsyncInvalidateRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -80,6 +143,27 @@ class Cache final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::GetResponse>> PrepareAsyncGet(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::GetResponse>>(PrepareAsyncGetRaw(context, request, cq));
+    }
+    ::grpc::Status Set(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::pb::SetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::SetResponse>> AsyncSet(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::SetResponse>>(AsyncSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::SetResponse>> PrepareAsyncSet(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::SetResponse>>(PrepareAsyncSetRaw(context, request, cq));
+    }
+    ::grpc::Status Delete(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::pb::DeleteResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::DeleteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::DeleteResponse>>(AsyncDeleteRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::DeleteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::DeleteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
+    }
+    ::grpc::Status Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::pb::InvalidateResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::InvalidateResponse>> AsyncInvalidate(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::InvalidateResponse>>(AsyncInvalidateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::InvalidateResponse>> PrepareAsyncInvalidate(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pb::InvalidateResponse>>(PrepareAsyncInvalidateRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
@@ -96,6 +180,42 @@ class Cache final {
       #else
       void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
+      void Set(::grpc::ClientContext* context, const ::pb::SetRequest* request, ::pb::SetResponse* response, std::function<void(::grpc::Status)>) override;
+      void Set(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::SetResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Set(::grpc::ClientContext* context, const ::pb::SetRequest* request, ::pb::SetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Set(::grpc::ClientContext* context, const ::pb::SetRequest* request, ::pb::SetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Set(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::SetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Set(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::SetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void Delete(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response, std::function<void(::grpc::Status)>) override;
+      void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::DeleteResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Delete(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Delete(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response, std::function<void(::grpc::Status)>) override;
+      void Invalidate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::InvalidateResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Invalidate(::grpc::ClientContext* context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Invalidate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::InvalidateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Invalidate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::pb::InvalidateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -109,7 +229,16 @@ class Cache final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::pb::GetResponse>* AsyncGetRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::pb::GetResponse>* PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pb::SetResponse>* AsyncSetRaw(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pb::SetResponse>* PrepareAsyncSetRaw(::grpc::ClientContext* context, const ::pb::SetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pb::DeleteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pb::DeleteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pb::InvalidateResponse>* AsyncInvalidateRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pb::InvalidateResponse>* PrepareAsyncInvalidateRaw(::grpc::ClientContext* context, const ::pb::GetRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Get_;
+    const ::grpc::internal::RpcMethod rpcmethod_Set_;
+    const ::grpc::internal::RpcMethod rpcmethod_Delete_;
+    const ::grpc::internal::RpcMethod rpcmethod_Invalidate_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -118,6 +247,9 @@ class Cache final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status Get(::grpc::ServerContext* context, const ::pb::GetRequest* request, ::pb::GetResponse* response);
+    virtual ::grpc::Status Set(::grpc::ServerContext* context, const ::pb::SetRequest* request, ::pb::SetResponse* response);
+    virtual ::grpc::Status Delete(::grpc::ServerContext* context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response);
+    virtual ::grpc::Status Invalidate(::grpc::ServerContext* context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Get : public BaseClass {
@@ -139,7 +271,67 @@ class Cache final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Get<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_Set : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_Set() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_Set() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Set(::grpc::ServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSet(::grpc::ServerContext* context, ::pb::SetRequest* request, ::grpc::ServerAsyncResponseWriter< ::pb::SetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Delete : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_Delete() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_Delete() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDelete(::grpc::ServerContext* context, ::pb::GetRequest* request, ::grpc::ServerAsyncResponseWriter< ::pb::DeleteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Invalidate : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_Invalidate() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_Invalidate() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Invalidate(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestInvalidate(::grpc::ServerContext* context, ::pb::GetRequest* request, ::grpc::ServerAsyncResponseWriter< ::pb::InvalidateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_Get<WithAsyncMethod_Set<WithAsyncMethod_Delete<WithAsyncMethod_Invalidate<Service > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Get : public BaseClass {
    private:
@@ -187,11 +379,152 @@ class Cache final {
     #endif
       { return nullptr; }
   };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Set : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_Set() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::pb::SetRequest, ::pb::SetResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::pb::SetRequest* request, ::pb::SetResponse* response) { return this->Set(context, request, response); }));}
+    void SetMessageAllocatorFor_Set(
+        ::grpc::experimental::MessageAllocator< ::pb::SetRequest, ::pb::SetResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::pb::SetRequest, ::pb::SetResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_Set() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Set(::grpc::ServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Set(
+      ::grpc::CallbackServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Set(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Delete : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_Delete() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::pb::GetRequest, ::pb::DeleteResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::pb::GetRequest* request, ::pb::DeleteResponse* response) { return this->Delete(context, request, response); }));}
+    void SetMessageAllocatorFor_Delete(
+        ::grpc::experimental::MessageAllocator< ::pb::GetRequest, ::pb::DeleteResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::pb::GetRequest, ::pb::DeleteResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_Delete() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Delete(
+      ::grpc::CallbackServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Delete(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Invalidate : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_Invalidate() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::pb::GetRequest, ::pb::InvalidateResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::pb::GetRequest* request, ::pb::InvalidateResponse* response) { return this->Invalidate(context, request, response); }));}
+    void SetMessageAllocatorFor_Invalidate(
+        ::grpc::experimental::MessageAllocator< ::pb::GetRequest, ::pb::InvalidateResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::pb::GetRequest, ::pb::InvalidateResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_Invalidate() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Invalidate(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Invalidate(
+      ::grpc::CallbackServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Invalidate(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_Get<Service > CallbackService;
+  typedef ExperimentalWithCallbackMethod_Get<ExperimentalWithCallbackMethod_Set<ExperimentalWithCallbackMethod_Delete<ExperimentalWithCallbackMethod_Invalidate<Service > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_Get<Service > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Get<ExperimentalWithCallbackMethod_Set<ExperimentalWithCallbackMethod_Delete<ExperimentalWithCallbackMethod_Invalidate<Service > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Get : public BaseClass {
    private:
@@ -205,6 +538,57 @@ class Cache final {
     }
     // disable synchronous version of this method
     ::grpc::Status Get(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::GetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Set : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_Set() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_Set() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Set(::grpc::ServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Delete : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_Delete() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_Delete() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Invalidate : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_Invalidate() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_Invalidate() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Invalidate(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -227,6 +611,66 @@ class Cache final {
     }
     void RequestGet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Set : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_Set() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_Set() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Set(::grpc::ServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Delete : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_Delete() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_Delete() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDelete(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Invalidate : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_Invalidate() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_Invalidate() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Invalidate(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestInvalidate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -268,6 +712,120 @@ class Cache final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Set : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Set() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Set(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Set() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Set(::grpc::ServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Set(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Set(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Delete : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Delete() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Delete(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Delete() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Delete(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Delete(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Invalidate : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Invalidate() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Invalidate(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Invalidate() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Invalidate(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Invalidate(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Invalidate(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_Get : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -294,9 +852,90 @@ class Cache final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pb::GetRequest,::pb::GetResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Get<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Set : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_Set() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::pb::SetRequest, ::pb::SetResponse>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::pb::SetRequest, ::pb::SetResponse>* streamer) {
+                       return this->StreamedSet(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_Set() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Set(::grpc::ServerContext* /*context*/, const ::pb::SetRequest* /*request*/, ::pb::SetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pb::SetRequest,::pb::SetResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Delete : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_Delete() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::pb::GetRequest, ::pb::DeleteResponse>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::pb::GetRequest, ::pb::DeleteResponse>* streamer) {
+                       return this->StreamedDelete(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_Delete() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::DeleteResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDelete(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pb::GetRequest,::pb::DeleteResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Invalidate : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_Invalidate() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::pb::GetRequest, ::pb::InvalidateResponse>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::pb::GetRequest, ::pb::InvalidateResponse>* streamer) {
+                       return this->StreamedInvalidate(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_Invalidate() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Invalidate(::grpc::ServerContext* /*context*/, const ::pb::GetRequest* /*request*/, ::pb::InvalidateResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedInvalidate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pb::GetRequest,::pb::InvalidateResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Set<WithStreamedUnaryMethod_Delete<WithStreamedUnaryMethod_Invalidate<Service > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Get<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Set<WithStreamedUnaryMethod_Delete<WithStreamedUnaryMethod_Invalidate<Service > > > > StreamedService;
 };
 
 }  // namespace pb

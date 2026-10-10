@@ -200,12 +200,12 @@ test/clean: test/CMakeFiles/test_group.dir/clean
 src/CMakeFiles/kcache_core.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=5,6,7,8 "Built target kcache_core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13 "Built target kcache_core"
 .PHONY : src/CMakeFiles/kcache_core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/kcache_core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/kcache_core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/kcache_core.dir/rule
@@ -217,7 +217,7 @@ kcache_core: src/CMakeFiles/kcache_core.dir/rule
 # codegen rule for target.
 src/CMakeFiles/kcache_core.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/kcache_core.dir/build.make src/CMakeFiles/kcache_core.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=5,6,7,8 "Finished codegen for target kcache_core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13 "Finished codegen for target kcache_core"
 .PHONY : src/CMakeFiles/kcache_core.dir/codegen
 
 # clean rule for target.
@@ -232,12 +232,12 @@ src/CMakeFiles/kcache_core.dir/clean:
 src/CMakeFiles/node_server.dir/all: src/CMakeFiles/kcache_core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/node_server.dir/build.make src/CMakeFiles/node_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/node_server.dir/build.make src/CMakeFiles/node_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=9,10 "Built target node_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=14,15 "Built target node_server"
 .PHONY : src/CMakeFiles/node_server.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/node_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/node_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/node_server.dir/rule
@@ -249,7 +249,7 @@ node_server: src/CMakeFiles/node_server.dir/rule
 # codegen rule for target.
 src/CMakeFiles/node_server.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/node_server.dir/build.make src/CMakeFiles/node_server.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=9,10 "Finished codegen for target node_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=14,15 "Finished codegen for target node_server"
 .PHONY : src/CMakeFiles/node_server.dir/codegen
 
 # clean rule for target.
@@ -269,7 +269,7 @@ src/client/CMakeFiles/kcache_client_sdk.dir/all: src/CMakeFiles/kcache_core.dir/
 
 # Build rule for subdir invocation for target.
 src/client/CMakeFiles/kcache_client_sdk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/client/CMakeFiles/kcache_client_sdk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 0
 .PHONY : src/client/CMakeFiles/kcache_client_sdk.dir/rule
@@ -296,12 +296,12 @@ src/client/CMakeFiles/kcache_client_sdk.dir/clean:
 test/CMakeFiles/test_lru.dir/all: src/CMakeFiles/kcache_core.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_lru.dir/build.make test/CMakeFiles/test_lru.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_lru.dir/build.make test/CMakeFiles/test_lru.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=15,16 "Built target test_lru"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=20,21 "Built target test_lru"
 .PHONY : test/CMakeFiles/test_lru.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_lru.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_lru.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/test_lru.dir/rule
@@ -313,7 +313,7 @@ test_lru: test/CMakeFiles/test_lru.dir/rule
 # codegen rule for target.
 test/CMakeFiles/test_lru.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_lru.dir/build.make test/CMakeFiles/test_lru.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=15,16 "Finished codegen for target test_lru"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=20,21 "Finished codegen for target test_lru"
 .PHONY : test/CMakeFiles/test_lru.dir/codegen
 
 # clean rule for target.
@@ -328,12 +328,12 @@ test/CMakeFiles/test_lru.dir/clean:
 test/CMakeFiles/test_cons_hash.dir/all: src/CMakeFiles/kcache_core.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cons_hash.dir/build.make test/CMakeFiles/test_cons_hash.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cons_hash.dir/build.make test/CMakeFiles/test_cons_hash.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=11,12 "Built target test_cons_hash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=16,17 "Built target test_cons_hash"
 .PHONY : test/CMakeFiles/test_cons_hash.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_cons_hash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_cons_hash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/test_cons_hash.dir/rule
@@ -345,7 +345,7 @@ test_cons_hash: test/CMakeFiles/test_cons_hash.dir/rule
 # codegen rule for target.
 test/CMakeFiles/test_cons_hash.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cons_hash.dir/build.make test/CMakeFiles/test_cons_hash.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=11,12 "Finished codegen for target test_cons_hash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=16,17 "Finished codegen for target test_cons_hash"
 .PHONY : test/CMakeFiles/test_cons_hash.dir/codegen
 
 # clean rule for target.
@@ -360,12 +360,12 @@ test/CMakeFiles/test_cons_hash.dir/clean:
 test/CMakeFiles/test_group.dir/all: src/CMakeFiles/kcache_core.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_group.dir/build.make test/CMakeFiles/test_group.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_group.dir/build.make test/CMakeFiles/test_group.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=13,14 "Built target test_group"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=18,19 "Built target test_group"
 .PHONY : test/CMakeFiles/test_group.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_group.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_group.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/test_group.dir/rule
@@ -377,7 +377,7 @@ test_group: test/CMakeFiles/test_group.dir/rule
 # codegen rule for target.
 test/CMakeFiles/test_group.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_group.dir/build.make test/CMakeFiles/test_group.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=13,14 "Finished codegen for target test_group"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=18,19 "Finished codegen for target test_group"
 .PHONY : test/CMakeFiles/test_group.dir/codegen
 
 # clean rule for target.
@@ -398,7 +398,7 @@ example/http_gateway/CMakeFiles/http_gateway.dir/all: src/client/CMakeFiles/kcac
 
 # Build rule for subdir invocation for target.
 example/http_gateway/CMakeFiles/http_gateway.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example/http_gateway/CMakeFiles/http_gateway.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles 0
 .PHONY : example/http_gateway/CMakeFiles/http_gateway.dir/rule
@@ -425,6 +425,7 @@ example/http_gateway/CMakeFiles/http_gateway.dir/clean:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /home/fengyue/workspace/Distributed-Cache/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

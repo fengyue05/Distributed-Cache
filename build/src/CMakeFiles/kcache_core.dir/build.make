@@ -113,19 +113,99 @@ src/CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.s"
 	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyue/workspace/Distributed-Cache/src/proto/kcache.grpc.pb.cc -o CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.s
 
+src/CMakeFiles/kcache_core.dir/cache/lru.cc.o: src/CMakeFiles/kcache_core.dir/flags.make
+src/CMakeFiles/kcache_core.dir/cache/lru.cc.o: /home/fengyue/workspace/Distributed-Cache/src/cache/lru.cc
+src/CMakeFiles/kcache_core.dir/cache/lru.cc.o: src/CMakeFiles/kcache_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/kcache_core.dir/cache/lru.cc.o"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/kcache_core.dir/cache/lru.cc.o -MF CMakeFiles/kcache_core.dir/cache/lru.cc.o.d -o CMakeFiles/kcache_core.dir/cache/lru.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/cache/lru.cc
+
+src/CMakeFiles/kcache_core.dir/cache/lru.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kcache_core.dir/cache/lru.cc.i"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengyue/workspace/Distributed-Cache/src/cache/lru.cc > CMakeFiles/kcache_core.dir/cache/lru.cc.i
+
+src/CMakeFiles/kcache_core.dir/cache/lru.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kcache_core.dir/cache/lru.cc.s"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyue/workspace/Distributed-Cache/src/cache/lru.cc -o CMakeFiles/kcache_core.dir/cache/lru.cc.s
+
+src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o: src/CMakeFiles/kcache_core.dir/flags.make
+src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o: /home/fengyue/workspace/Distributed-Cache/src/consistent_hash/consistent_hash.cc
+src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o: src/CMakeFiles/kcache_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o -MF CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o.d -o CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/consistent_hash/consistent_hash.cc
+
+src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.i"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengyue/workspace/Distributed-Cache/src/consistent_hash/consistent_hash.cc > CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.i
+
+src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.s"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyue/workspace/Distributed-Cache/src/consistent_hash/consistent_hash.cc -o CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.s
+
+src/CMakeFiles/kcache_core.dir/group/group.cc.o: src/CMakeFiles/kcache_core.dir/flags.make
+src/CMakeFiles/kcache_core.dir/group/group.cc.o: /home/fengyue/workspace/Distributed-Cache/src/group/group.cc
+src/CMakeFiles/kcache_core.dir/group/group.cc.o: src/CMakeFiles/kcache_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/kcache_core.dir/group/group.cc.o"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/kcache_core.dir/group/group.cc.o -MF CMakeFiles/kcache_core.dir/group/group.cc.o.d -o CMakeFiles/kcache_core.dir/group/group.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/group/group.cc
+
+src/CMakeFiles/kcache_core.dir/group/group.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kcache_core.dir/group/group.cc.i"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengyue/workspace/Distributed-Cache/src/group/group.cc > CMakeFiles/kcache_core.dir/group/group.cc.i
+
+src/CMakeFiles/kcache_core.dir/group/group.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kcache_core.dir/group/group.cc.s"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyue/workspace/Distributed-Cache/src/group/group.cc -o CMakeFiles/kcache_core.dir/group/group.cc.s
+
+src/CMakeFiles/kcache_core.dir/register/register.cc.o: src/CMakeFiles/kcache_core.dir/flags.make
+src/CMakeFiles/kcache_core.dir/register/register.cc.o: /home/fengyue/workspace/Distributed-Cache/src/register/register.cc
+src/CMakeFiles/kcache_core.dir/register/register.cc.o: src/CMakeFiles/kcache_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/kcache_core.dir/register/register.cc.o"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/kcache_core.dir/register/register.cc.o -MF CMakeFiles/kcache_core.dir/register/register.cc.o.d -o CMakeFiles/kcache_core.dir/register/register.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/register/register.cc
+
+src/CMakeFiles/kcache_core.dir/register/register.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kcache_core.dir/register/register.cc.i"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengyue/workspace/Distributed-Cache/src/register/register.cc > CMakeFiles/kcache_core.dir/register/register.cc.i
+
+src/CMakeFiles/kcache_core.dir/register/register.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kcache_core.dir/register/register.cc.s"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyue/workspace/Distributed-Cache/src/register/register.cc -o CMakeFiles/kcache_core.dir/register/register.cc.s
+
+src/CMakeFiles/kcache_core.dir/server/server.cc.o: src/CMakeFiles/kcache_core.dir/flags.make
+src/CMakeFiles/kcache_core.dir/server/server.cc.o: /home/fengyue/workspace/Distributed-Cache/src/server/server.cc
+src/CMakeFiles/kcache_core.dir/server/server.cc.o: src/CMakeFiles/kcache_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/kcache_core.dir/server/server.cc.o"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/kcache_core.dir/server/server.cc.o -MF CMakeFiles/kcache_core.dir/server/server.cc.o.d -o CMakeFiles/kcache_core.dir/server/server.cc.o -c /home/fengyue/workspace/Distributed-Cache/src/server/server.cc
+
+src/CMakeFiles/kcache_core.dir/server/server.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kcache_core.dir/server/server.cc.i"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengyue/workspace/Distributed-Cache/src/server/server.cc > CMakeFiles/kcache_core.dir/server/server.cc.i
+
+src/CMakeFiles/kcache_core.dir/server/server.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kcache_core.dir/server/server.cc.s"
+	cd /home/fengyue/workspace/Distributed-Cache/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyue/workspace/Distributed-Cache/src/server/server.cc -o CMakeFiles/kcache_core.dir/server/server.cc.s
+
 # Object files for target kcache_core
 kcache_core_OBJECTS = \
 "CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.o" \
-"CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o"
+"CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o" \
+"CMakeFiles/kcache_core.dir/cache/lru.cc.o" \
+"CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o" \
+"CMakeFiles/kcache_core.dir/group/group.cc.o" \
+"CMakeFiles/kcache_core.dir/register/register.cc.o" \
+"CMakeFiles/kcache_core.dir/server/server.cc.o"
 
 # External object files for target kcache_core
 kcache_core_EXTERNAL_OBJECTS =
 
 src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.o
 src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o
+src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/cache/lru.cc.o
+src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o
+src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/group/group.cc.o
+src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/register/register.cc.o
+src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/server/server.cc.o
 src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/build.make
 src/libkcache_core.a: src/CMakeFiles/kcache_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libkcache_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fengyue/workspace/Distributed-Cache/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libkcache_core.a"
 	cd /home/fengyue/workspace/Distributed-Cache/build/src && $(CMAKE_COMMAND) -P CMakeFiles/kcache_core.dir/cmake_clean_target.cmake
 	cd /home/fengyue/workspace/Distributed-Cache/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kcache_core.dir/link.txt --verbose=$(VERBOSE)
 

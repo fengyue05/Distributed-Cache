@@ -53,6 +53,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/4.0.2/CMakeCCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeSystem.cmake"
+  "CMakeFiles/VerifyGlobs.cmake"
+  "CMakeFiles/cmake.verify_globs"
   "/home/fengyue/workspace/Distributed-Cache/example/CMakeLists.txt"
   "/home/fengyue/workspace/Distributed-Cache/example/http_gateway/CMakeLists.txt"
   "/home/fengyue/workspace/Distributed-Cache/src/CMakeLists.txt"

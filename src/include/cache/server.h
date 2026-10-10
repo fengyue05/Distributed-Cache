@@ -3,11 +3,14 @@
 
 #include <chrono>
 #include <functional>
+#include <grpcpp/impl/codegen/server_context.h>
+#include <grpcpp/security/server_credentials.h>
 #include <string>
 #include <vector>
 #include <grpcpp/grpcpp.h>
 #include <etcd/Client.hpp>
 
+#include "cache/register.h"
 #include "kcache.grpc.pb.h"
 #include "kcache.pb.h"
 namespace Litguidyo
@@ -67,6 +70,27 @@ public:
     response 服务端填写的响应，gRPC 会将它发送给客户端	response->set_value("缓存内容")
     */
     auto Get(grpc::ServerContext* context, const pb::GetRequest* request, pb::GetResponse* response) -> grpc::Status override;
+    auto Set(grpc::ServerContext* context, const pb::SetRequest* request, pb::SetResponse* response) -> grpc::Status override;
+    auto Delete(grpc::ServerContext* context, const pb::GetRequest* request, pb::DeleteResponse* response) -> grpc::Status override;
+
+    auto Invalidate(grpc::ServerContext* context, const pb::GetRequest* request, pb::InvalidateResponse* response) -> grpc::Status override;
+
+    void Start();
+
+    void Stop();
+
+private:
+    auto LoadTLSCredentials(const std::string& cert_file, const std::string& key_file)
+        -> std::shared_ptr<grpc::ServerCredentials>;
+
+    std::string addr_;
+    std::string svc_name_;
+
+    std::unique_ptr<grpc::Server> grpc_server_;
+    std::unique_ptr<EtcdRegistry> etcd_register_;
+
+    std::atomic<bool> is_stop_;
+    ServerOptions opts_;
 };
 
 }

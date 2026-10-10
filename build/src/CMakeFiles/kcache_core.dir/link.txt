@@ -1,2 +1,2 @@
-/usr/bin/ar qc libkcache_core.a CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.o CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o
+/usr/bin/ar qc libkcache_core.a CMakeFiles/kcache_core.dir/proto/kcache.pb.cc.o CMakeFiles/kcache_core.dir/proto/kcache.grpc.pb.cc.o CMakeFiles/kcache_core.dir/cache/lru.cc.o CMakeFiles/kcache_core.dir/consistent_hash/consistent_hash.cc.o CMakeFiles/kcache_core.dir/group/group.cc.o CMakeFiles/kcache_core.dir/register/register.cc.o CMakeFiles/kcache_core.dir/server/server.cc.o
 /usr/bin/ranlib libkcache_core.a
