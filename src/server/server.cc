@@ -22,8 +22,6 @@ CacheServer::CacheServer(const std::string& addr, const std::string& svc_name, S
         }
     }
 
-
-
 auto CacheServer::Get(grpc::ServerContext* context, const pb::GetRequest* request, pb::GetResponse* response) -> grpc::Status
 {
     // 先找到对应的组
